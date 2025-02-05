@@ -65,7 +65,7 @@ message SpotlightStateDatabase {
   // Corresponds to the onboarding screen's next button.
   SpotlightViewState onboarding_next_button = 1;
 
-  // Corresponds to the topic fragment's learn tab.
+  // Corresponds to the topic fragment's Learn tab.
   SpotlightViewState topic_lesson_tab = 2;
 
   // Corresponds to the topic fragment's Study tab.
