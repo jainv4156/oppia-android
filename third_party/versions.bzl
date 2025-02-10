@@ -127,8 +127,8 @@ MAVEN_TEST_DEPENDENCY_VERSIONS = {
     "org.jetbrains.kotlinx:kotlinx-coroutines-test": "1.6.4",
     "org.mockito.kotlin:mockito-kotlin": "3.2.0",
     "org.mockito:mockito-core": "2.19.0",
-    "org.robolectric:annotations": "4.8.3",
-    "org.robolectric:robolectric": "4.8.3",
+    "org.robolectric:annotations": "4.7.3",
+    "org.robolectric:robolectric": "4.7.3",
     "org.snakeyaml:snakeyaml-engine": "2.6",
 }
 
@@ -159,7 +159,7 @@ HTTP_DEPENDENCY_VERSIONS = {
     },
     "robolectric": {
         "sha": "97f169d39f19412bdd07fd6c274dcda0a7c8f623f7f00aa5a3b94994fc6f0ec4",
-        "version": "4.8.3",
+        "version": "4.7.3",
     },
     "rules_java": {
         "sha": "c73336802d0b4882e40770666ad055212df4ea62cfa6edf9cb0f9d29828a0934",
