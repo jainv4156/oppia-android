@@ -45,7 +45,7 @@ class WalkthroughActivity :
 
   companion object {
 
-    fun createWalkthroughActivityIntent(context: Context,profileId: ProfileId): Intent {
+    fun createWalkthroughActivityIntent(context: Context, profileId: ProfileId): Intent {
       return Intent(context, WalkthroughActivity::class.java).apply {
         decorateWithUserProfileId(profileId)
         decorateWithScreenName(WALKTHROUGH_ACTIVITY)

@@ -47,7 +47,6 @@ class WalkthroughFinalFragmentPresenter @Inject constructor(
     this.topicId = topicId
     profileId = activity.intent?.extractCurrentUserProfileId() ?: ProfileId.getDefaultInstance()
 
-
     walkthroughFinalViewModel = WalkthroughFinalViewModel()
 
     binding.let {
