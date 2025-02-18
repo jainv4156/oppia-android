@@ -127,8 +127,10 @@ class WalkthroughActivityTest {
 
   @Test
   fun testActivity_createIntent_verifyScreenNameInIntent() {
+    val profileId = ProfileId.newBuilder().setInternalId(1).build()
+
     val currentScreenName = WalkthroughActivity.createWalkthroughActivityIntent(
-      context, 1
+      context, profileId
     ).extractCurrentAppScreenName()
 
     assertThat(currentScreenName).isEqualTo(ScreenName.WALKTHROUGH_ACTIVITY)
