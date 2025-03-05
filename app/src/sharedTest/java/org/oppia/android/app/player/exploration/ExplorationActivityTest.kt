@@ -263,7 +263,6 @@ class ExplorationActivityTest {
   @Test
   fun testActivity_createIntent_verifyScreenNameInIntent() {
     val screenName = createExplorationActivityIntent(
-      internalProfileId,
       TEST_CLASSROOM_ID_0,
       TEST_TOPIC_ID_0,
       TEST_STORY_ID_0,
@@ -279,7 +278,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -298,7 +296,6 @@ class ExplorationActivityTest {
   fun testExploration_toolbarTitle_isDisplayedSuccessfully() {
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -326,7 +323,6 @@ class ExplorationActivityTest {
     fakeAccessibilityService.setScreenReaderEnabled(false)
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -350,7 +346,6 @@ class ExplorationActivityTest {
     fakeAccessibilityService.setScreenReaderEnabled(true)
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -374,7 +369,6 @@ class ExplorationActivityTest {
     fakeAccessibilityService.setScreenReaderEnabled(false)
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -398,7 +392,6 @@ class ExplorationActivityTest {
     fakeAccessibilityService.setScreenReaderEnabled(true)
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -420,7 +413,6 @@ class ExplorationActivityTest {
   fun testExploration_configurationChange_toolbarTitle_isDisplayedSuccessfully() {
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -448,7 +440,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -478,7 +469,6 @@ class ExplorationActivityTest {
     markSpotlightSeen(Spotlight.FeatureCase.VOICEOVER_PLAY_ICON)
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -509,7 +499,6 @@ class ExplorationActivityTest {
     markSpotlightSeen(Spotlight.FeatureCase.VOICEOVER_PLAY_ICON)
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -533,7 +522,6 @@ class ExplorationActivityTest {
 
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -561,7 +549,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -589,7 +576,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -610,7 +596,6 @@ class ExplorationActivityTest {
 
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -639,7 +624,6 @@ class ExplorationActivityTest {
     markSpotlightSeen(Spotlight.FeatureCase.LESSONS_BACK_BUTTON)
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -668,7 +652,6 @@ class ExplorationActivityTest {
     markSpotlightSeen(Spotlight.FeatureCase.LESSONS_BACK_BUTTON)
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -689,7 +672,6 @@ class ExplorationActivityTest {
 
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -717,7 +699,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -745,7 +726,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -774,7 +754,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -803,7 +782,6 @@ class ExplorationActivityTest {
   fun testAudioWithNoVoiceover_openPrototypeExploration_checkAudioButtonIsHidden() {
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -827,7 +805,6 @@ class ExplorationActivityTest {
   fun testAudioWithNoVoiceover_prototypeExploration_configChange_checkAudioButtonIsHidden() {
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -854,7 +831,6 @@ class ExplorationActivityTest {
     setUpAudio()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         RATIOS_TOPIC_ID,
         RATIOS_STORY_ID_0,
@@ -885,7 +861,6 @@ class ExplorationActivityTest {
     setUpAudio()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         RATIOS_TOPIC_ID,
         RATIOS_STORY_ID_0,
@@ -916,7 +891,6 @@ class ExplorationActivityTest {
     setUpAudio()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         RATIOS_TOPIC_ID,
         RATIOS_STORY_ID_0,
@@ -948,7 +922,6 @@ class ExplorationActivityTest {
     setUpAudio()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         RATIOS_TOPIC_ID,
         RATIOS_STORY_ID_0,
@@ -989,7 +962,6 @@ class ExplorationActivityTest {
     setUpAudio()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         RATIOS_TOPIC_ID,
         RATIOS_STORY_ID_0,
@@ -1037,7 +1009,6 @@ class ExplorationActivityTest {
     setUpAudio()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         RATIOS_TOPIC_ID,
         RATIOS_STORY_ID_0,
@@ -1082,7 +1053,6 @@ class ExplorationActivityTest {
     setUpAudio()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         RATIOS_TOPIC_ID,
         RATIOS_STORY_ID_0,
@@ -1128,7 +1098,6 @@ class ExplorationActivityTest {
     setUpAudio()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         RATIOS_TOPIC_ID,
         RATIOS_STORY_ID_0,
@@ -1169,7 +1138,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1233,7 +1201,6 @@ class ExplorationActivityTest {
     setUpAudio()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         RATIOS_TOPIC_ID,
         RATIOS_STORY_ID_0,
@@ -1279,7 +1246,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1296,7 +1262,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1327,7 +1292,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1358,7 +1322,6 @@ class ExplorationActivityTest {
     setUpAudio()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         RATIOS_TOPIC_ID,
         RATIOS_STORY_ID_0,
@@ -1398,7 +1361,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1428,7 +1390,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1461,7 +1422,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1503,7 +1463,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1537,7 +1496,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1565,7 +1523,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1600,7 +1557,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1642,7 +1598,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1680,7 +1635,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1719,7 +1673,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1760,7 +1713,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1802,7 +1754,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1843,7 +1794,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1896,7 +1846,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1949,7 +1898,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -1992,7 +1940,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -2026,7 +1973,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -2058,7 +2004,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -2093,7 +2038,6 @@ class ExplorationActivityTest {
     setUpAudioForFractionLesson()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -2125,7 +2069,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     explorationActivityTestRule.launchActivity(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_1,
         FRACTIONS_TOPIC_ID,
         FRACTIONS_STORY_ID_0,
@@ -2161,7 +2104,6 @@ class ExplorationActivityTest {
     )
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2193,7 +2135,6 @@ class ExplorationActivityTest {
     )
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2225,7 +2166,6 @@ class ExplorationActivityTest {
     )
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2263,7 +2203,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2307,7 +2246,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2345,7 +2283,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2388,7 +2325,6 @@ class ExplorationActivityTest {
     )
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2426,7 +2362,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2454,7 +2389,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2493,7 +2427,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2532,7 +2465,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2564,7 +2496,6 @@ class ExplorationActivityTest {
     markAllSpotlightsSeen()
     launch<ExplorationActivity>(
       createExplorationActivityIntent(
-        internalProfileId,
         TEST_CLASSROOM_ID_0,
         TEST_TOPIC_ID_0,
         TEST_STORY_ID_0,
@@ -2663,7 +2594,6 @@ class ExplorationActivityTest {
   }
 
   private fun createExplorationActivityIntent(
-    internalProfileId: Int,
     classroomId: String,
     topicId: String,
     storyId: String,
@@ -2674,7 +2604,6 @@ class ExplorationActivityTest {
     // typical route to playing an exploration.
     return ExplorationActivity.createExplorationActivityIntent(
       ApplicationProvider.getApplicationContext(),
-      ProfileId.newBuilder().apply { internalId = internalProfileId }.build(),
       classroomId,
       topicId,
       storyId,

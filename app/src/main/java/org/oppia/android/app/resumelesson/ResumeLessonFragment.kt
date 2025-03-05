@@ -14,6 +14,7 @@ import org.oppia.android.app.model.ReadingTextSize
 import org.oppia.android.app.model.ResumeLessonFragmentArguments
 import org.oppia.android.util.extensions.getProto
 import org.oppia.android.util.extensions.putProto
+import org.oppia.android.util.profile.CurrentUserProfileIdIntentDecorator.extractCurrentUserProfileId
 import javax.inject.Inject
 
 /** Fragment that allows the user to resume a saved exploration. */
@@ -25,7 +26,6 @@ class ResumeLessonFragment : InjectableFragment() {
 
     /** Creates new instance of [ResumeLessonFragment] for the provided parameters. */
     fun newInstance(
-      profileId: ProfileId,
       classroomId: String,
       topicId: String,
       storyId: String,
@@ -35,7 +35,6 @@ class ResumeLessonFragment : InjectableFragment() {
       readingTextSize: ReadingTextSize
     ): ResumeLessonFragment {
       val args = ResumeLessonFragmentArguments.newBuilder().apply {
-        this.profileId = profileId
         this.classroomId = classroomId
         this.topicId = topicId
         this.storyId = storyId
@@ -72,10 +71,13 @@ class ResumeLessonFragment : InjectableFragment() {
       RESUME_LESSON_FRAGMENT_ARGUMENTS_KEY,
       ResumeLessonFragmentArguments.getDefaultInstance()
     )
+    val profileId: ProfileId =
+      activity?.intent?.extractCurrentUserProfileId() ?: ProfileId.getDefaultInstance()
+
     return resumeLessonFragmentPresenter.handleOnCreate(
       inflater,
       container,
-      args.profileId,
+      profileId,
       args.classroomId,
       args.topicId,
       args.storyId,

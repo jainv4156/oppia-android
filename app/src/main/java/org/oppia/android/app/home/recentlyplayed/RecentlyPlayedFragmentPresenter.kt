@@ -26,6 +26,8 @@ import org.oppia.android.domain.exploration.lightweightcheckpointing.Exploration
 import org.oppia.android.domain.oppialogger.OppiaLogger
 import org.oppia.android.util.data.AsyncResult
 import org.oppia.android.util.data.DataProviders.Companion.toLiveData
+import org.oppia.android.util.profile.CurrentUserProfileIdIntentDecorator.decorateWithUserProfileId
+import org.oppia.android.util.profile.CurrentUserProfileIdIntentDecorator.extractCurrentUserProfileId
 import javax.inject.Inject
 
 /** The presenter for [RecentlyPlayedFragment]. */
@@ -49,9 +51,9 @@ class RecentlyPlayedFragmentPresenter @Inject constructor(
   fun handleCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
-    internalProfileId: Int
   ): View? {
-    this.profileId = ProfileId.newBuilder().setInternalId(internalProfileId).build()
+
+    this.profileId = activity.intent.extractCurrentUserProfileId()
     val recentlyPlayedViewModel = recentlyPlayedViewModelFactory.create(
       fragment as PromotedStoryClickListener,
       this.profileId
@@ -106,8 +108,8 @@ class RecentlyPlayedFragmentPresenter @Inject constructor(
           override fun onChanged(it: AsyncResult<ExplorationCheckpoint>) {
             if (it is AsyncResult.Success) {
               explorationCheckpointLiveData.removeObserver(this)
+              activity.intent.decorateWithUserProfileId(profileId)
               routeToResumeLessonListener.routeToResumeLesson(
-                profileId,
                 promotedStory.classroomId,
                 promotedStory.topicId,
                 promotedStory.storyId,
@@ -194,8 +196,8 @@ class RecentlyPlayedFragmentPresenter @Inject constructor(
           oppiaLogger.e("RecentlyPlayedFragment", "Failed to load exploration", result.error)
         is AsyncResult.Success -> {
           oppiaLogger.d("RecentlyPlayedFragment", "Successfully loaded exploration")
+          activity.intent.decorateWithUserProfileId(profileId)
           routeToExplorationListener.routeToExploration(
-            profileId,
             classroomId,
             topicId,
             storyId,

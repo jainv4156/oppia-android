@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import org.oppia.android.R
 import org.oppia.android.app.fragment.FragmentScope
 import org.oppia.android.app.model.ExplorationFragmentArguments
-import org.oppia.android.app.model.ProfileId
 import org.oppia.android.app.model.ReadingTextSize
 import org.oppia.android.app.model.Spotlight
 import org.oppia.android.app.player.state.StateFragment
@@ -28,11 +28,13 @@ import org.oppia.android.util.data.AsyncResult
 import org.oppia.android.util.data.DataProviders.Companion.toLiveData
 import org.oppia.android.util.extensions.getProto
 import org.oppia.android.util.extensions.putProto
+import org.oppia.android.util.profile.CurrentUserProfileIdIntentDecorator.extractCurrentUserProfileId
 import javax.inject.Inject
 
 /** The presenter for [ExplorationFragment]. */
 @FragmentScope
 class ExplorationFragmentPresenter @Inject constructor(
+  private val activity: AppCompatActivity,
   private val fragment: Fragment,
   private val oppiaLogger: OppiaLogger,
   private val analyticsController: AnalyticsController,
@@ -41,7 +43,7 @@ class ExplorationFragmentPresenter @Inject constructor(
   private val resourceHandler: AppLanguageResourceHandler
 ) {
 
-  private var internalProfileId: Int = -1
+  val profileId = activity.intent.extractCurrentUserProfileId()
 
   /** Handles the [Fragment.onAttach] portion of [ExplorationFragment]'s lifecycle. */
   fun handleAttach(context: Context) {
@@ -53,10 +55,9 @@ class ExplorationFragmentPresenter @Inject constructor(
     val args = retrieveArguments()
     val binding =
       ExplorationFragmentBinding.inflate(inflater, container, /* attachToRoot= */ false).root
-    internalProfileId = args.profileId.internalId
     val stateFragment =
       StateFragment.newInstance(
-        args.profileId.internalId, args.topicId, args.storyId, args.explorationId
+        profileId.internalId, args.topicId, args.storyId, args.explorationId
       )
     logPracticeFragmentEvent(args.classroomId, args.topicId, args.storyId, args.explorationId)
     if (getStateFragment() == null) {
@@ -70,14 +71,16 @@ class ExplorationFragmentPresenter @Inject constructor(
 
   /** Handles the [Fragment.onViewCreated] portion of [ExplorationFragment]'s lifecycle. */
   fun handleViewCreated() {
-    val profileDataProvider = profileManagementController.getProfile(retrieveArguments().profileId)
+
+    val profileDataProvider = profileManagementController.getProfile(
+      profileId
+    )
     profileDataProvider.toLiveData().observe(
       fragment
     ) { result ->
       val readingTextSize = retrieveArguments().readingTextSize
       if (result is AsyncResult.Success) {
         if (result.value.readingTextSize != readingTextSize) {
-
           // Since text views are based on sp for sizing, the activity needs to be recreated so that
           // sp can be correctly recomputed.
           selectNewReadingTextSize(result.value.readingTextSize)
@@ -161,7 +164,7 @@ class ExplorationFragmentPresenter @Inject constructor(
       oppiaLogger.createOpenExplorationActivityContext(
         classroomId, topicId, storyId, explorationId
       ),
-      ProfileId.newBuilder().apply { internalId = internalProfileId }.build()
+      profileId
     )
   }
 

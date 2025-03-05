@@ -10,7 +10,6 @@ import org.oppia.android.app.activity.InjectableAutoLocalizedAppCompatActivity
 import org.oppia.android.app.home.RouteToExplorationListener
 import org.oppia.android.app.model.ExplorationActivityParams
 import org.oppia.android.app.model.ExplorationCheckpoint
-import org.oppia.android.app.model.ProfileId
 import org.oppia.android.app.model.RecentlyPlayedActivityParams
 import org.oppia.android.app.model.ScreenName
 import org.oppia.android.app.player.exploration.ExplorationActivity
@@ -61,7 +60,6 @@ class RecentlyPlayedActivity :
   }
 
   override fun routeToExploration(
-    profileId: ProfileId,
     classroomId: String,
     topicId: String,
     storyId: String,
@@ -72,7 +70,6 @@ class RecentlyPlayedActivity :
     startActivity(
       ExplorationActivity.createExplorationActivityIntent(
         this,
-        profileId,
         classroomId,
         topicId,
         storyId,
@@ -84,7 +81,6 @@ class RecentlyPlayedActivity :
   }
 
   override fun routeToResumeLesson(
-    profileId: ProfileId,
     classroomId: String,
     topicId: String,
     storyId: String,
@@ -95,7 +91,6 @@ class RecentlyPlayedActivity :
     startActivity(
       ResumeLessonActivity.createResumeLessonActivityIntent(
         this,
-        profileId,
         classroomId,
         topicId,
         storyId,

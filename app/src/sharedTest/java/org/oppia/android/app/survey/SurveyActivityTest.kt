@@ -27,7 +27,6 @@ import org.oppia.android.app.application.ApplicationStartupListenerModule
 import org.oppia.android.app.application.testing.TestingBuildFlavorModule
 import org.oppia.android.app.devoptions.DeveloperOptionsModule
 import org.oppia.android.app.devoptions.DeveloperOptionsStarterModule
-import org.oppia.android.app.model.ProfileId
 import org.oppia.android.app.model.ScreenName
 import org.oppia.android.app.player.state.itemviewmodel.SplitScreenInteractionModule
 import org.oppia.android.app.shim.ViewBindingShimModule
@@ -106,8 +105,6 @@ class SurveyActivityTest {
   @get:Rule
   val oppiaTestRule = OppiaTestRule()
 
-  private val profileId = ProfileId.newBuilder().setInternalId(0).build()
-
   @Inject
   lateinit var testCoroutineDispatchers: TestCoroutineDispatchers
 
@@ -136,7 +133,7 @@ class SurveyActivityTest {
 
   @Test
   fun testSurveyActivity_hasCorrectActivityLabel() {
-    activityTestRule.launchActivity(createSurveyActivityIntent(profileId))
+    activityTestRule.launchActivity(createSurveyActivityIntent())
     val title = activityTestRule.activity.title
 
     // Verify that the activity label is correct as a proxy to verify TalkBack will announce the
@@ -147,7 +144,7 @@ class SurveyActivityTest {
   @Test
   fun testActivity_createIntent_verifyScreenNameInIntent() {
     val currentScreenNameWithIntent = SurveyActivity.createSurveyActivityIntent(
-      context, profileId, TEST_TOPIC_ID_0, TEST_EXPLORATION_ID_2
+      context, TEST_TOPIC_ID_0, TEST_EXPLORATION_ID_2
     ).extractCurrentAppScreenName()
 
     assertThat(currentScreenNameWithIntent).isEqualTo(ScreenName.SURVEY_ACTIVITY)
@@ -158,9 +155,9 @@ class SurveyActivityTest {
       .inject(this)
   }
 
-  private fun createSurveyActivityIntent(profileId: ProfileId): Intent {
+  private fun createSurveyActivityIntent(): Intent {
     return SurveyActivity.createSurveyActivityIntent(
-      context, profileId, TEST_TOPIC_ID_0, TEST_EXPLORATION_ID_2
+      context, TEST_TOPIC_ID_0, TEST_EXPLORATION_ID_2
     )
   }
 
