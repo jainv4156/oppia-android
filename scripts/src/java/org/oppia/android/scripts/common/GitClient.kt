@@ -46,6 +46,10 @@ class GitClient(
   /** 
    * Retrieves commit information for the most recent commit including hash, author name, 
    * author email, and author date.
+   * 
+   * This method executes the equivalent of: git log -1 --pretty=%H%n%an%n%ae%n%ad
+   * 
+   * @return CommitInfo containing structured commit data
    */
   fun getLatestCommitInfo(): CommitInfo {
     val output = executeGitCommand("log -1 --pretty=%H%n%an%n%ae%n%ad")
