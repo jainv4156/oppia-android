@@ -3,6 +3,16 @@ package org.oppia.android.scripts.common
 import java.io.File
 
 /**
+ * Data class representing commit information including hash, author details, and date.
+ */
+data class CommitInfo(
+  val hash: String,
+  val authorName: String,
+  val authorEmail: String,
+  val authorDate: String
+)
+
+/**
  * General utility for interfacing with a Git repository located at the specified working directory
  * and using the specified base commit hash reference that should be used when computing changes
  * from the local branch.
@@ -31,6 +41,23 @@ class GitClient(
   val committedFiles: List<String> by lazy {
     retrieveChangedCommittedFiles() +
       retrieveRenamedFiles()
+  }
+
+  /** 
+   * Retrieves commit information for the most recent commit including hash, author name, 
+   * author email, and author date.
+   */
+  fun getLatestCommitInfo(): CommitInfo {
+    val output = executeGitCommand("log -1 --pretty=%H%n%an%n%ae%n%ad")
+    check(output.size == 4) { 
+      "Expected 4 lines of output for commit info, but got: $output" 
+    }
+    return CommitInfo(
+      hash = output[0],
+      authorName = output[1], 
+      authorEmail = output[2],
+      authorDate = output[3]
+    )
   }
 
   private fun retrieveCurrentCommit(): String {

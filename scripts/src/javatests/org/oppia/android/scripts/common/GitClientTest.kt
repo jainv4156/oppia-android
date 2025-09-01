@@ -334,4 +334,44 @@ class GitClientTest {
   private fun deleteFile(name: String) {
     assertThat(File(tempFolder.root, name).delete()).isTrue() // Sanity check.
   }
+
+  @Test
+  fun testGetLatestCommitInfo_forNonRepository_throwsException() {
+    val gitClient = GitClient(tempFolder.root, "develop", commandExecutor)
+
+    val exception = assertThrows<IllegalStateException>() { gitClient.getLatestCommitInfo() }
+
+    assertThat(exception).hasMessageThat().contains("Expected non-zero exit code")
+    assertThat(exception).hasMessageThat().ignoringCase().contains("not a git repository")
+  }
+
+  @Test
+  fun testGetLatestCommitInfo_forValidRepository_returnsCommitInfo() {
+    initializeRepoWithDevelopBranch()
+    val developHash = getMostRecentCommitOnCurrentBranch()
+
+    val gitClient = GitClient(tempFolder.root, "develop", commandExecutor)
+    val commitInfo = gitClient.getLatestCommitInfo()
+
+    assertThat(commitInfo.hash).isEqualTo(developHash)
+    assertThat(commitInfo.authorName).isEqualTo("Test User")
+    assertThat(commitInfo.authorEmail).isEqualTo("test@oppia.org")
+    assertThat(commitInfo.authorDate).isNotEmpty()
+  }
+
+  @Test
+  fun testGetLatestCommitInfo_afterNewCommit_returnsUpdatedInfo() {
+    initializeRepoWithDevelopBranch()
+    testGitRepository.checkoutNewBranch("introduce-feature")
+    testGitRepository.commit(message = "Test empty commit", allowEmpty = true)
+    val featureBranchHash = getMostRecentCommitOnCurrentBranch()
+
+    val gitClient = GitClient(tempFolder.root, "develop", commandExecutor)
+    val commitInfo = gitClient.getLatestCommitInfo()
+
+    assertThat(commitInfo.hash).isEqualTo(featureBranchHash)
+    assertThat(commitInfo.authorName).isEqualTo("Test User")
+    assertThat(commitInfo.authorEmail).isEqualTo("test@oppia.org")
+    assertThat(commitInfo.authorDate).isNotEmpty()
+  }
 }
